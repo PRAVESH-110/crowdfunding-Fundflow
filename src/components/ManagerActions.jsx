@@ -100,8 +100,7 @@ const ManagerActions = () => {
     return (
         <div>
             <div style={{ padding: '20px' }}>
-                <h2>Manager Actions</h2>
-                <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '16px', marginBottom: '16px' }}>
+                <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '26px', marginBottom: '16px', alignSelf:'center', alignContent:'center' }}>
                     <h3>Campaign ID</h3>
                     <p>Enter the ID of the campaign to manage.</p>
                     <input
@@ -109,20 +108,20 @@ const ManagerActions = () => {
                         value={campaignId}
                         onChange={(e) => setCampaignId(e.target.value)}
                         type="number"
-                        style={{ width: '100%', padding: '8px', marginBottom: '8px', border: '1px solid #ddd', borderRadius: '4px' }}
+                        style={{ width: '95%', padding: '13px', marginBottom: '8px', border: '1px solid #ddd', borderRadius: '4px' }}
                     />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <button onClick={handleApproveCampaign} disabled={loading} style={{ padding: '8px 16px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', padding:'30px' }}>
+                    <button onClick={handleApproveCampaign} disabled={loading} style={{ padding: '10px 16px', backgroundColor: '#FFD700', color: 'black', border: 'none', borderRadius: '4px', cursor: 'pointer', fontFamily:'revert-layer', width:'70%', alignSelf:'center' }}>
                         {loading ? 'Approving...' : 'Toggle Campaign Approval'}
                     </button>
-                    <button onClick={handleStartCampaign} disabled={loading} style={{ padding: '8px 16px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+                    <button onClick={handleStartCampaign} disabled={loading} style={{ padding: '10px 16px', gap: '18px', backgroundColor: '#FFD700', color: 'black', border: 'none', borderRadius: '4px', cursor: 'pointer', width:'70%', alignSelf:'center' }}>
                         {loading ? 'Starting...' : 'Start Campaign'}
                     </button>
-                    <button onClick={handleWithdrawFunds} disabled={loading} style={{ padding: '8px 16px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+                    <button onClick={handleWithdrawFunds} disabled={loading} style={{ padding: '10px 16px', gap: '18px', backgroundColor: '#FFD700', color: 'black', border: 'none', borderRadius: '4px', cursor: 'pointer', width:'70%', alignSelf:'center' }}>
                         {loading ? 'Withdrawing...' : 'Withdraw Funds'}
                     </button>
-                    <button onClick={handleWithdrawAllFunds} disabled={loading} style={{ padding: '8px 16px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+                    <button onClick={handleWithdrawAllFunds} disabled={loading} style={{ padding: '10px 16px', gap: '18px', backgroundColor: '#FFD700', color: 'black', border: 'none', borderRadius: '4px', cursor: 'pointer', width:'70%', alignSelf:'center' }}>
                         {loading ? 'Withdrawing...' : 'Withdraw All Funds'}
                     </button>
                     {error && (
@@ -135,6 +134,10 @@ const ManagerActions = () => {
                         </div>
                     )}
                 </div>
+
+
+                </div>
+                
             </div>
         </div>
     );

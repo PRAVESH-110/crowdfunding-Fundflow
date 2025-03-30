@@ -2,6 +2,7 @@ import { contractAddress, CrowdFunding } from '../constant/constants';
 import React, { useState, useContext, useEffect } from 'react';
 import { Web3Context } from '../context/web3Context';
 import { ethers } from 'ethers';
+import { Link } from 'react-router-dom';
 
 const Campaigns = () => {
     const { web3State } = useContext(Web3Context);
@@ -87,12 +88,13 @@ const Campaigns = () => {
     };
   
     return (
-        <div >
+        <div>
+            
             <div style={{ padding: '20px' }}>
-                <h2>Campaigns</h2>
+                
                 {loading && <p>Loading campaigns...</p>}
                 {error && (
-                    <div style={{ backgroundColor: '#f8d7da', color: '#721c24', padding: '10px', marginTop: '10px', border: '1px solid #f5c6cb', borderRadius: '4px', display: 'flex', alignItems: 'center', padding:'10px' }}>
+                    <div style={{ backgroundColor: '#f8d7da', color: '#721c24', padding: '10px', marginTop: '10px', border: '1px solid #f5c6cb', borderRadius: '4px', display: 'flex', alignItems: 'center' }}>
                         <svg style={{ width: '1em', height: '1em', marginRight: '5px', fill: 'currentColor' }} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path></svg>
                         <div>
                             <h3>Error</h3>
@@ -100,7 +102,7 @@ const Campaigns = () => {
                         </div>
                     </div>
                 )}
-                {!loading && !error && campaigns.length === 0 && <p>No campaigns available.</p>}
+                {!loading && !error && campaigns.length === 0 && <p>No campaigns available currently</p>}
                 {!loading && !error && campaigns.map((campaign) => (
                     <div key={campaign.campaignId.toString()} style={{ marginBottom: '16px', border: '1px solid #ccc', borderRadius: '8px', padding: '16px' }}>
                         <h3>{campaign.campaignName}</h3>

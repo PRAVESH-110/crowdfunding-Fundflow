@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Web3Context } from "./web3Context";
+import { Web3Context } from "./web3Context.jsx"; // Updated import to match the correct file extension
+
 import { getWeb3State } from "../utils/getWeb3State";
 import { handleAccountChange } from "../utils/handleAccountChange";
 import { handleChainChange } from "../utils/handleChainChange";
@@ -33,7 +34,8 @@ const Web3Provider = ({children})=>{
   
   return (
     <> 
-      <button onClick={handleWallet} style={{ position: 'absolute', top: '10px', left: '10px' }}>Connect Wallet</button>
+      <button onClick={handleWallet} style={{ position: 'absolute', top: '10px', left: '10px', borderRadius: '20px', width: '170px', height: '40px', backgroundColor: '#FFD700' , color: 'black', paddingRight:'10px' }}>Connect Wallet</button>
+
 
       <Web3Context.Provider value={{web3State,handleWallet}}>
 

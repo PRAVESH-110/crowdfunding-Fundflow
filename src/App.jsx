@@ -12,7 +12,7 @@ const App = () => {
     <Web3Provider>
       <Router>
         <div>
-          <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', backgroundColor: '#f9f7bd', width: '70%', margin: '0 auto', top:'10', display:'flex' }}>
+          <nav style={{ display: 'flex', borderRadius:'20px', justifyContent: 'space-between', padding: '10px', backgroundColor: '#f9f7bd', width: '50%', margin: '0 auto', top:'10', display:'flex' }}>
             <div style={{ display: 'flex', justifyContent: 'space-around', flexGrow: 1 }}>
 
               <Link to="/" style={{ textDecoration: 'none', color:'black' }}>Home</Link>
@@ -29,6 +29,9 @@ const App = () => {
           </Routes>
         </div>
       </Router>
+
+       
+
     </Web3Provider>
   );
 };

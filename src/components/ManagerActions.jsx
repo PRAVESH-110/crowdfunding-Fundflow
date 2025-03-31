@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Web3Context } from '../context/web3Context';
 import { ethers } from 'ethers';
-import { contractAddress, CrowdFunding } from '../constant/constants';
+import { contractAddress, abi } from '../constant/constants';
 
 const ManagerActions = () => {
     const { web3State } = useContext(Web3Context);
@@ -63,7 +63,7 @@ const ManagerActions = () => {
         try {
             const provider = new ethers.BrowserProvider(window.ethereum);
             const signer = await provider.getSigner();
-            const contract = new ethers.Contract(contractAddress, CrowdFunding.abi, signer);
+            const contract = new ethers.Contract(contractAddress, abi, signer);
 
             const tx = await contract.withdrawFund(campaignId);
             await tx.wait();

@@ -105,7 +105,10 @@ const Campaigns = () => {
                 {!loading && !error && campaigns.length === 0 && <p>No campaigns available currently</p>}
                 {!loading && !error && campaigns.map((campaign) => (
                     <div key={campaign.campaignId.toString()} style={{ marginBottom: '16px', border: '1px solid #ccc', borderRadius: '8px', padding: '16px' }}>
-                        <h3>{campaign.campaignName}</h3>
+
+                        <h1>{campaign.campaignName}</h1>
+                        
+                        <p>Campaign ID: {campaign.campaignId.toString()}</p>
                         <p>Started by: {campaign.startedBy}</p>
                         <p>Amount to Raise: {ethers.formatEther(campaign.amountToRaise)} ETH</p>
                         <p>Amount Raised: {ethers.formatEther(campaign.amountRaised)} ETH</p>
@@ -113,13 +116,15 @@ const Campaigns = () => {
                         <p>Start Time: {campaign.startTime.toString()}</p>
                         <p>End Time: {campaign.endTime.toString()}</p>
                         <p>Approval: {campaign.approval ? 'Approved' : 'Pending'}</p>
-                        <p>Live: {campaign.isLive ? 'Live' : 'Not Live'}</p>
+                        <p>Status: {campaign.isLive ? 'Live' : 'Not Live'}</p>
+
                         <div style={{ marginTop: '16px', display: 'flex', gap: '8px' }}>
                             <button onClick={() => setSelectedCampaignId(Number(campaign.campaignId))} style={{ padding: '8px 16px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Donate</button>
                             <button onClick={() => getDonators(Number(campaign.campaignId))} style={{ padding: '8px 16px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Show Donators</button>
                         </div>
                     </div>
                 ))}
+
                 {selectedCampaignId !== null && (
                     <div style={{ marginTop: '16px', border: '1px solid #ccc', borderRadius: '8px', padding: '16px' }}>
                         <h3>Donate to Campaign {selectedCampaignId}</h3>
@@ -141,6 +146,7 @@ const Campaigns = () => {
                                 </div>
                             </div>
                         )}
+                        
                         <h3>Donators</h3>
                         {donators.length > 0 ? (
                             <ul>
